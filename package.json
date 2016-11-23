@@ -1,0 +1,23 @@
+{
+  "name": "language-ember",
+  "version": "1.0.0",
+  "description": "Atom Grammer Package for Ember Applications",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DHedgecock/language-ember.git"
+  },
+  "keywords": [
+    "Ember",
+    "Atom",
+    "Grammar"
+  ],
+  "author": "Dan Hedgecock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DHedgecock/language-ember/issues"
+  },
+  "homepage": "https://github.com/DHedgecock/language-ember#readme"
+}
