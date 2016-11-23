@@ -12,4 +12,4 @@ This atom package combines the two to allow for syntax highlighting of inline Em
 ### TODO:
 - [] Add real `increaseIndentPattern` && `decreaseIndentPattern` regexes in settings
 - [] Create a specific parsing rule for inline hbs instead of using quasi-js
-- [] Migrate html and htmlbars patterns to repo
+- [x] Migrate html and htmlbars patterns to repo
