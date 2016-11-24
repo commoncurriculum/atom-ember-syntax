@@ -29,6 +29,7 @@
       "patterns": [
         { "include": "#ignore-long-lines" },
         { "include": "#jsx" },
+        { "include": "#ember-htmlbars" },
         { "include": "#es7-decorators" },
         { "include": "#support" },
         { "include": "#literal-function-labels" },
@@ -54,192 +55,6 @@
         { "include": "#literal-comma" },
         { "include": "#fat-arrow"}
       ]
-    },
-    "ember": {
-      "patterns": [
-        { "include": "#tag-id-attribute" }
-      ]
-    },
-    "htmlbars-comment": {
-      "name": "comment.block.htmlbars",
-      "begin": "\\{\\{!((?:--)*)",
-      "end": "(\\1)\\}\\}",
-      "captures": {
-        "0": {
-          "name": "punctuation.definition.comment.htmlbars"
-        }
-      }
-    },
-    "htmlbars-block-open": {
-      "name": "meta.tag.block.open.htmlbars",
-      "begin": "(\\{\\{)(#)(?:(if|unless|with|each|else if|else)|([a-zA-Z0-9.-]+))",
-      "end": "(\\}\\})",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "3": {
-          "name": "support.function.builtin"
-        },
-        "4": {
-          "name": "entity.name.function.block.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-block-params" },
-        { "include": "#htmlbars-as-keyword" },
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-generic-attribute-name" },
-        { "include": "#htmlbars-generic-attribute-value" },
-        { "include": "#string-single-quoted" },
-        { "include": "#string-double-quoted" }
-      ]
-    },
-    "htmlbars-block-close": {
-      "name": "meta.tag.block.close.htmlbars",
-      "begin": "(\\{\\{)(/)(?:(if|unless|with|each|else if|else)|([a-zA-Z0-9.-]+))",
-      "end": "(\\}\\})",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "3": {
-          "name": "support.function.builtin"
-        },
-        "4": {
-          "name": "entity.name.function.block.htmlbars"
-        }
-      }
-    },
-    "htmlbars-inline": {
-      "name": "meta.tag.inline.htmlbars",
-      "begin": "(\\{\\{)(?:(if|unless|yield|else if|else)|([a-zA-Z0-9.-]+))",
-      "end": "(\\}\\})",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.inline.htmlbars"
-        },
-        "2": {
-          "name": "support.function.builtin.inline.htmlbars"
-        },
-        "3": {
-          "name": "entity.name.function.inline.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-block-params" },
-        { "include": "#htmlbars-as-keyword" },
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-generic-attribute-name" },
-        { "include": "#htmlbars-generic-attribute-value" },
-        { "include": "#string-single-quoted" },
-        { "include": "#string-double-quoted" }
-      ]
-    },
-    "htmlbars-block-params": {
-      "name": "keyword.block-params.htmlbars",
-      "begin": "(?<!\\|)(\\|)",
-      "beginCaptures": {
-        "1": {
-          "name": "constant.other.symbol.begin.htmlbars"
-        }
-      },
-      "end": "(\\|)(?!\\|)",
-      "endCaptures": {
-        "1": {
-          "name": "constant.other.symbol.end.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-block-param" }
-      ]
-    },
-    "htmlbars-block-param": {
-      "name": "variable.other.htmlbars",
-      "match": "\\b([a-zA-Z0-9-_]+)\\b"
-    },
-    "htmlbars-as-keyword": {
-      "name": "support.function.builtin.htmlbars",
-      "match": "\\s\\b(as)\\b(?=\\s\\|)"
-    },
-    "string-double-quoted": {
-      "name": "string.quoted.double.html.htmlbars",
-      "begin": "\"",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.html.htmlbars"
-        }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.html.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block-open" },
-        { "include": "#htmlbars-block-close" },
-        { "include": "#htmlbars-inline" }
-      ]
-    },
-    "string-single-quoted": {
-      "begin": "'",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.html.htmlbars"
-        }
-      },
-      "end": "'",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.html.htmlbars"
-        }
-      },
-      "name": "string.quoted.single.html.htmlbars",
-      "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block-open" },
-        { "include": "#htmlbars-block-close" },
-        { "include": "#htmlbars-inline" }
-      ]
-    },
-    "htmlbars-subexp": {
-      "name": "meta.tag.inline.subexp.htmlbars",
-      "begin": "(\\()([a-zA-Z0-9.-]+)",
-      "end": "(\\))",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "2": {
-          "name": "entity.name.function.block.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "$self" }
-      ]
-    },
-    "htmlbars-generic-attribute-name": {
-      "match": "(?<=[^=])\\b([a-zA-Z0-9:_.-]+)(=)",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.html.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.definition.tag.htmlbars"
-        }
-      }
-    },
-    "htmlbars-generic-attribute-value": {
-      "match": "\\b([a-zA-Z0-9:_.-]+)\\b",
-      "name": "string.unquoted.htmlbars"
     },
     "ignore-long-lines": {
       "comment": "long lines shouldn't be parsed for performance reasons as regex's are per line",
@@ -932,12 +747,6 @@
             "2": { "name": "string.quoted.template.js" }
           },
           "patterns": [
-            { "include": "#tag-id-attribute" },
-            { "include": "#htmlbars-comment" },
-            { "include": "#htmlbars-block-open" },
-            { "include": "#htmlbars-block-close" },
-            { "include": "#htmlbars-inline" },
-            { "include": "internal.text.html.htmlbars" },
             { "include": "#literal-quasi-embedded"},
             { "include": "#string-content" }
           ]
@@ -2281,6 +2090,30 @@
           "comment": "Entity with & and invalid name",
           "match": "&\\s*+;",
           "name": "invalid.illegal.bad-ampersand.jsx"
+        }
+      ]
+    },
+    "ember-htmlbars": {
+      "patterns": [
+        {
+          "comment": "Ember inline htmlbar templates",
+          "name": "meta.tag.htmlbars",
+          "contentName": "inline.template.htmlbars",
+          "begin": "\\s*+(hbs)((`))",
+          "end": "((`))",
+          "beginCaptures": {
+            "1": { "name": "entity.name.tag.js" },
+            "2": { "name": "punctuation.definition.template.begin.js" },
+            "3": { "name": "string.inline.template.htmlbars" }
+          },
+          "endCaptures": {
+            "1": { "name": "punctuation.definition.template.end.js" },
+            "2": { "name": "string.inline.template.htmlbars" }
+          },
+          "patterns": [
+            { "include": "internal.text.html.htmlbars.core" },
+            { "include": "internal.text.html.htmlbars" }
+          ]
         }
       ]
     },

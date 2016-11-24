@@ -10,6 +10,8 @@ This atom package combines the two to allow for syntax highlighting of inline Em
 
 
 ### TODO:
+- [] Check if JSX has html patterns for use
+- [x] Move htmlbars core to separate file
 - [] Add real `increaseIndentPattern` && `decreaseIndentPattern` regexes in settings
-- [] Create a specific parsing rule for inline hbs instead of using quasi-js
+- [x] Create a specific parsing rule for inline hbs instead of using quasi-js
 - [x] Migrate html and htmlbars patterns to repo
