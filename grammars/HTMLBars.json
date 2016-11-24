@@ -3,9 +3,9 @@
   "scopeName": "internal.text.html.htmlbars.core",
   "fileTypes": [],
   "patterns": [
-    { "include": "#htmlbars-comment" }
-    { "include": "#htmlbars-block-open" }
-    { "include": "#htmlbars-block-close" }
+    { "include": "#htmlbars-comment" },
+    { "include": "#htmlbars-block-open" },
+    { "include": "#htmlbars-block-close" },
     { "include": "#htmlbars-inline" }
   ],
   "repository": {
@@ -191,3 +191,4 @@
       "name": "string.unquoted.htmlbars"
     }
   }
+}

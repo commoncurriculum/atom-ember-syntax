@@ -1,16 +1,19 @@
 # Babel + Inline HTMLBars Highlighting
 
-Adds syntax highlighting for inline htmlbars to the [language-babel](https://github.com/gandm/language-babel) package.
+Adds syntax highlighting for declaring templates using tagged template strings to the [language-babel](https://github.com/gandm/language-babel) package.
 
 
-Notes:
+
+
+### Thank You
 Thank you [language-babel](https://github.com/gandm/language-babel) and [language-ember-htmlbars](https://github.com/jmurphyau/language-ember-htmlbars) for the regex patterns.
-
-This atom package combines the two to allow for syntax highlighting of inline Ember template declarations.
 
 
 ### TODO:
 - [] Check if JSX has html patterns for use
+- [] Change wrapping `meta.tag.htmlbars` to something more semantic?
+- [] Add appropriate comment syntax for htmlbars
+- [] HTMLBars is not properly matching internal hbs props
 - [x] Move htmlbars core to separate file
 - [] Add real `increaseIndentPattern` && `decreaseIndentPattern` regexes in settings
 - [x] Create a specific parsing rule for inline hbs instead of using quasi-js
