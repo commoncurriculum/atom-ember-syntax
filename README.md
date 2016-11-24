@@ -12,7 +12,7 @@ Thank you [language-babel](https://github.com/gandm/language-babel) and [languag
 ### TODO:
 - [] Check if JSX has html patterns for use
 - [] Change wrapping `meta.tag.htmlbars` to something more semantic?
-- [] Add appropriate comment syntax for htmlbars
+- [x] Add appropriate comment syntax for htmlbars
 - [] HTMLBars is not properly matching internal hbs props
 - [x] Move htmlbars core to separate file
 - [] Add real `increaseIndentPattern` && `decreaseIndentPattern` regexes in settings

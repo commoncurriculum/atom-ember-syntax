@@ -1,11 +1,62 @@
 {
+  ".source.js.jsx": {
+    "editor": {
+      "commentStart": "// ",
+      "foldEndPattern": "^\\s*\\}|^\\s*\\]|^\\s*\\)",
+      "increaseIndentPattern": "{[^}\"']*$|\\[[^\\]\"']*$|\\([^)\"']*$|<[a-zA-Z][^/]*$|^\\s*>$",
+      "decreaseIndentPattern": "^\\s*(\\s*/[*].*[*]/\\s*)*[}\\])]|^\\s*(</|/>)",
+      "nonWordCharacters": "/\\()\"':,.;<>~!@#%^&*|+=[]{}`?-…"
+    }
+  },
+  ".source.inside-js.css.styled": {
+    "editor": {
+    "commentStart": "${''/* ",
+    "commentEnd": "*/}"
+    }
+  },
+  ".meta.tag.jsx": {
+    "editor": {
+      "commentStart": "{/* ",
+      "commentEnd": " */}"
+    }
+  },
+  ".JSXAttrs": {
+    "editor": {
+      "commentStart": "// "
+    }
+  },
+  ".meta.embedded.expression.commented-out.jsx": {
+    "editor": {
+      "commentStart": "{/* ",
+      "commentEnd": " */}"
+    }
+  },
+  ".JSXNested": {
+    "editor": {
+      "commentStart": "{/* ",
+      "commentEnd": " */}"
+    }
+  },
+  ".graphql": {
+    "editor": {
+      "commentStart": "# "
+    }
+  },
   ".text.html": {
     "editor": {
       "commentStart": "{{!-- ",
       "commentEnd": " --}}",
       "foldEndPattern": "(?x)\n\t\t(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl|section|article|header|footer|nav|aside)>\n\t\t|^(?!.*?<!--).*?--\\s*>\n\t\t|^<!--\\ end\\ tminclude\\ -->$\n\t\t|<\\?(?:php)?.*\\bend(if|for(each)?|while)\\b\n\t\t|\\{\\{?/(if|foreach|capture|literal|foreach|php|section|strip)\n\t\t|^[^{]*\\}\n\t\t|^\\s*\\)[,;]\n\t\t)",
-      "increaseIndentPattern": "^\\s*(function|if|elseif|else|for|while|select|case|try|catch)\\b.*$",
-      "decreaseIndentPattern": "^\\s*(endfunction|elseif|else|catch|end)\\b$"
+      "increaseIndentPattern": "(?x)<(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)|<!--(?!.*-->)|<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)|\\{[^}\"']*$",
+      "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
+    }
+  },
+  ".meta.tag.htmlbars": {
+    "editor": {
+      "commentStart": "{{!-- ",
+      "commentEnd": " --}}",
+      "increaseIndentPattern": "(?x)<(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)|<!--(?!.*-->)|<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)|\\{[^}\"']*$",
+      "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
     }
   }
 }
