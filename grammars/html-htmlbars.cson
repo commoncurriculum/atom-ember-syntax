@@ -1,4 +1,4 @@
-'scopeName': 'internal.text.html.htmlbars'
+'scopeName': 'internal.text.inline.htmlbars'
 'fileTypes': []
 'patterns': [
   {
@@ -21,6 +21,7 @@
     'name': 'meta.tag.any.html.htmlbars'
     'patterns': [
       { 'include': '#tag-stuff' }
+      { 'include': 'internal.text.html.htmlbars.core'}
     ]
   }
   {
@@ -56,6 +57,9 @@
         'match': '--'
         'name': 'invalid.illegal.bad-comments-or-CDATA.html.htmlbars'
       }
+      # {
+      #   'include': '#embedded-code'
+      # }
     ]
   }
   {
@@ -91,6 +95,9 @@
       }
     ]
   }
+  # {
+  #   'include': '#embedded-code'
+  # }
   {
     'begin': '(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)'
     'captures':
@@ -113,6 +120,9 @@
             'name': 'punctuation.definition.tag.html.htmlbars'
         'end': '(?=</(?i:style))'
         'patterns': [
+          # {
+          #   'include': '#embedded-code'
+          # }
           {
             'include': 'source.css'
           }
@@ -302,8 +312,15 @@
         'name': 'punctuation.definition.tag.end.html.htmlbars'
     'name': 'meta.tag.other.html.htmlbars'
     'patterns': [
-      { 'include': 'internal.text.html.htmlbars.core' }
-      { 'include': '#entities' }
+      {
+        'include': 'internal.text.html.htmlbars.inline'
+      }
+      {
+        'include': 'internal.text.html.htmlbars.curley'
+      }
+      {
+        'include': '#tag-stuff'
+      }
     ]
   }
   {
@@ -313,21 +330,34 @@
     'match': '<>'
     'name': 'invalid.illegal.incomplete.html.htmlbars'
   }
+  # {
+  #   'match': '><'
+  #   'name': 'meta.scope.outside-tag.html.htmlbars'
+  # }
+  # {
+  #   'match': '(?<=>)(<)'
+  #   'name': 'meta.scope.outside-tag.html.htmlbars'
+  # }
+  # {
+  #   'begin': '(?<=>)'
+  #   'end': '(?=<)'
+  #   'name': 'meta.scope.outside-tag.html.htmlbars'
+  #   'patterns': [
+  #     {
+  #       'include': '#entities'
+  #     }
+  #   ]
+  # }
 ]
 'repository':
-  # 'inline-htmlbars':
-  #   'begin': '\\{\\{'
-  #   'beginCaptures':
-  #     '0':
-  #       'name': 'punctuation.definition.tag.htmlbars'
-  #   'end': '\\}\\}'
-  #   'endCaptures':
-  #     '0':
-  #       'name': 'punctuation.definition.tag.htmlbars'
-  #   'name': 'meta.tag.inline.htmlbars'
+  # 'embedded-code':
   #   'patterns': [
-  #     { 'include': 'internal.text.html.htmlbars.core' }
-  #     { 'include': '#entities' }
+  #     {
+  #       'include': '#smarty'
+  #     }
+  #     {
+  #       'include': '#python'
+  #     }
   #   ]
   'entities':
     'patterns': [
@@ -345,6 +375,38 @@
         'name': 'invalid.illegal.bad-ampersand.html.htmlbars'
       }
     ]
+  # 'python':
+  #   'begin': '(?:^\\s*)<\\?python(?!.*\\?>)'
+  #   'end': '\\?>(?:\\s*$\\n)?'
+  #   'name': 'source.python.embedded.html.htmlbars'
+  #   'patterns': [
+  #     {
+  #       'include': 'source.python'
+  #     }
+  #   ]
+  # 'smarty':
+  #   'patterns': [
+  #     {
+  #       'begin': '(\\{(literal)\\})'
+  #       'captures':
+  #         '1':
+  #           'name': 'source.smarty.embedded.html.htmlbars'
+  #         '2':
+  #           'name': 'support.function.built-in.smarty'
+  #       'end': '(\\{/(literal)\\})'
+  #     }
+  #     {
+  #       'begin': '{{|{'
+  #       'disabled': 1
+  #       'end': '}}|}'
+  #       'name': 'source.smarty.embedded.html.htmlbars'
+  #       'patterns': [
+  #         {
+  #           'include': 'source.smarty'
+  #         }
+  #       ]
+  #     }
+  #   ]
   'string-double-quoted':
     'begin': '"'
     'beginCaptures':
@@ -356,8 +418,18 @@
         'name': 'punctuation.definition.string.end.html.htmlbars'
     'name': 'string.quoted.double.html.htmlbars'
     'patterns': [
-      { 'include': 'internal.text.html.htmlbars.core' }
-      { 'include': '#entities' }
+      # {
+      #   'include': '#embedded-code'
+      # }
+      {
+        'include': 'internal.text.html.htmlbars.inline'
+      }
+      {
+        'include': 'internal.text.html.htmlbars.curley'
+      }
+      {
+        'include': '#entities'
+      }
     ]
   'string-single-quoted':
     'begin': '\''
@@ -370,8 +442,18 @@
         'name': 'punctuation.definition.string.end.html.htmlbars'
     'name': 'string.quoted.single.html.htmlbars'
     'patterns': [
-      { 'include': 'internal.text.html.htmlbars.core' }
-      { 'include': '#entities' }
+      # {
+      #   'include': '#embedded-code'
+      # }
+      {
+        'include': 'internal.text.html.htmlbars.inline'
+      }
+      {
+        'include': 'internal.text.html.htmlbars.curley'
+      }
+      {
+        'include': '#entities'
+      }
     ]
   'tag-generic-attribute':
     'match': '(?<=[^=])\\b([a-zA-Z0-9:-]+)'
@@ -398,8 +480,18 @@
             'name': 'punctuation.definition.string.end.html.htmlbars'
         'name': 'string.quoted.double.html.htmlbars'
         'patterns': [
-          { 'include': 'internal.text.html.htmlbars.core' }
-          { 'include': '#entities' }
+          # {
+          #   'include': '#embedded-code'
+          # }
+          {
+            'include': 'internal.text.html.htmlbars.inline'
+          }
+          {
+            'include': 'internal.text.html.htmlbars.curley'
+          }
+          {
+            'include': '#entities'
+          }
         ]
       }
       {
@@ -414,8 +506,18 @@
             'name': 'punctuation.definition.string.end.html.htmlbars'
         'name': 'string.quoted.single.html.htmlbars'
         'patterns': [
-          { 'include': 'internal.text.html.htmlbars.core' }
-          { 'include': '#entities' }
+          # {
+          #   'include': '#embedded-code'
+          # }
+          {
+            'include': 'internal.text.html.htmlbars.inline'
+          }
+          {
+            'include': 'internal.text.html.htmlbars.curley'
+          }
+          {
+            'include': '#entities'
+          }
         ]
       }
       {
@@ -424,11 +526,24 @@
     ]
   'tag-stuff':
     'patterns': [
-      { 'include': '#tag-id-attribute' }
-      { 'include': '#tag-generic-attribute' }
-      { 'include': '#string-double-quoted' }
-      { 'include': '#string-single-quoted' }
-      { 'include': '#unquoted-attribute' }
+      {
+        'include': '#tag-id-attribute'
+      }
+      {
+        'include': '#tag-generic-attribute'
+      }
+      {
+        'include': '#string-double-quoted'
+      }
+      {
+        'include': '#string-single-quoted'
+      }
+      # {
+      #   'include': '#embedded-code'
+      # }
+      {
+        'include': '#unquoted-attribute'
+      }
     ]
   'unquoted-attribute':
     'match': '(?<==)(?:[^\\s<>/\'"]|/(?!>))+'

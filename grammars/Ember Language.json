@@ -2098,21 +2098,20 @@
         {
           "comment": "Ember inline htmlbar templates",
           "name": "meta.tag.htmlbars",
-          "contentName": "inline.template.htmlbars",
           "begin": "\\s*+(hbs)((`))",
           "end": "((`))",
           "beginCaptures": {
             "1": { "name": "entity.name.tag.js" },
             "2": { "name": "punctuation.definition.template.begin.js" },
-            "3": { "name": "string.inline.template.htmlbars" }
+            "3": { "name": "template.string.tagged.js" }
           },
           "endCaptures": {
             "1": { "name": "punctuation.definition.template.end.js" },
-            "2": { "name": "string.inline.template.htmlbars" }
+            "2": { "name": "template.string.tagged.js" }
           },
           "patterns": [
-            { "include": "internal.text.html.htmlbars.core" },
-            { "include": "internal.text.html.htmlbars" }
+            { "include": "source.htmlbars.js" },
+            { "include": "internal.text.inline.htmlbars" }
           ]
         }
       ]

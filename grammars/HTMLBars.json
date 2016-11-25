@@ -1,14 +1,30 @@
 {
-  "name": "Ember HTMLBars",
-  "scopeName": "internal.text.html.htmlbars.core",
+  "name": "Ember HTMLBars (Babel)",
+  "scopeName": "source.htmlbars.js",
   "fileTypes": [],
   "patterns": [
+    { "include": "#htmlbars-unescaped" },
     { "include": "#htmlbars-comment" },
     { "include": "#htmlbars-block-open" },
     { "include": "#htmlbars-block-close" },
     { "include": "#htmlbars-inline" }
   ],
   "repository": {
+    "htmlbars-unescaped": {
+      "comment": "Special capture to enable flagging unescaped properties using",
+      "comment": "triple curlies",
+      "name": "unescaped.block.htmlbars",
+      "begin": "\\{\\{\\{",
+      "end": "\\}\\}\\}",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.tag.unescaped.htmlbars"
+        }
+      },
+      "patterns": [
+        { "include": "#htmlbars-property-name" }
+      ]
+    },
     "htmlbars-comment": {
       "name": "comment.block.htmlbars",
       "begin": "\\{\\{!((?:--)*)",
@@ -91,6 +107,19 @@
         { "include": "#string-double-quoted" }
       ]
     },
+    "htmlbars-property-name": {
+      "comment": "use for flagging any property, function or component name",
+      "name": "string.property.htmlbars",
+      "match": "(\\.*)(\\w+)",
+      "captures": {
+        "1": {
+          "name": "string.property.variable.punctuation.htmlbars"
+        },
+        "2": {
+          "name": "string.of.property.function.component.name.htmlbars"
+        }
+      }
+    },
     "htmlbars-block-params": {
       "name": "keyword.block-params.htmlbars",
       "begin": "(?<!\\|)(\\|)",
@@ -168,11 +197,15 @@
           "name": "punctuation.definition.tag.htmlbars"
         },
         "2": {
-          "name": "entity.name.function.block.htmlbars"
+          "name": "support.function.block.htmlbars"
         }
       },
       "patterns": [
-        { "include": "$self" }
+        { "include": "#htmlbars-subexp" },
+        { "include": "#htmlbars-generic-attribute-name" },
+        { "include": "#htmlbars-generic-attribute-value" },
+        { "include": "#string-single-quoted" },
+        { "include": "#string-double-quoted" }
       ]
     },
     "htmlbars-generic-attribute-name": {
