@@ -2110,8 +2110,7 @@
             "2": { "name": "template.string.tagged.js" }
           },
           "patterns": [
-            { "include": "source.htmlbars.js" },
-            { "include": "internal.text.inline.htmlbars" }
+            { "include": "source.htmlbars.js" }
           ]
         }
       ]

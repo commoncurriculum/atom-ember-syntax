@@ -7,7 +7,10 @@
     { "include": "#htmlbars-comment" },
     { "include": "#htmlbars-block-open" },
     { "include": "#htmlbars-block-close" },
-    { "include": "#htmlbars-inline" }
+    { "include": "#htmlbars-inline" },
+    { "include": "#html-tag" },
+    { "include": "#html-comment-block" },
+    { "include": "#entities" }
   ],
   "repository": {
     "htmlbars-unescaped": {
@@ -222,6 +225,112 @@
     "htmlbars-generic-attribute-value": {
       "match": "\\b([a-zA-Z0-9:_.-]+)\\b",
       "name": "string.unquoted.htmlbars"
+    },
+    "begin-html-patterns": {
+      "comment": "======================================================",
+      "comment": "Begin HTML Patterns",
+      "comment": "======================================================"
+    },
+    "html-comment-block": {
+      "comment": "match on any html comment block eg: <!-- -->",
+      "begin": "<!--",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.comment.html.htmlbars"
+        }
+      },
+      "end": "--\\s*>",
+      "name": "comment.block.html.htmlbars",
+      "patterns": [
+        {
+          "match": "--",
+          "name": "invalid.illegal.bad-comments-or-CDATA.html.htmlbars"
+        }
+      ]
+    },
+    "html-tag": {
+      "comment": "match any html tag, handle as separate matches on open/close tags",
+      "begin": "(<\\/?)(([a-zA-Z0-9:-]+))\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.html.htmlbars"
+        },
+        "2": {
+          "name": "entity.name.tag.html.htmlbars"
+        }
+      },
+      "end": "(\\/?)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.html.htmlbars"
+        },
+        "2": {
+          "name": "punctuation.definition.tag.html.htmlbars"
+        }
+      },
+      "name": "meta.tag.html.element.htmlbars",
+      "patterns": [
+        { "include": "#htmlbars-unescaped" },
+        { "include": "#htmlbars-comment" },
+        { "include": "#htmlbars-block-open" },
+        { "include": "#htmlbars-block-close" },
+        { "include": "#htmlbars-inline" },
+        { "include": "#tag-id-attribute" },
+        { "include": "#tag-generic-attribute" },
+        { "include": "#string-double-quoted" },
+        { "include": "#string-single-quoted" },
+        { "include": "#unquoted-attribute" }
+      ]
+    },
+    "tag-generic-attribute": {
+      "comment": "eg: data-test='radical'",
+      "match": "(?<=[^=])\\b([a-zA-Z0-9:-]+)",
+      "name": "entity.other.attribute-name.html.htmlbars"
+    },
+    "tag-id-attribute": {
+      "comment": "eg: id=radical",
+      "begin": "\\b(id)\\b\\s*(=)",
+      "captures": {
+        "1": {
+          "name": "entity.other.attribute-name.id.html.htmlbars"
+        },
+        "2": {
+          "name": "punctuation.separator.key-value.html.htmlbars"
+        }
+      },
+      "end": "(?<='|\")|(?=\\s|>)",
+      "name": "meta.attribute-with-value.id.html.htmlbars",
+      "patterns": [
+        { "include": "#string-double-quoted" },
+        { "include": "#string-single-quoted" },
+        { "include": "#unquoted-attribute" }
+      ]
+    },
+    "entities": {
+      "comment": "Eg: &amp;",
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.entity.html.htmlbars"
+            },
+            "3": {
+              "name": "punctuation.definition.entity.html.htmlbars"
+            }
+          },
+          "match": "(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)",
+          "name": "constant.character.entity.html.htmlbars"
+        },
+        {
+          "match": "&",
+          "name": "invalid.illegal.bad-ampersand.html.htmlbars"
+        }
+      ]
+    },
+    "unquoted-attribute": {
+      "comment": "Eg: checked=true",
+      "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
+      "name": "string.unquoted.html.htmlbars"
     }
   }
 }
