@@ -16,7 +16,8 @@ Contributions are welcome!
 - [] Fix undefined grammer
 - [] Match variable names instead of unquoted string inside `{{concat "aria-labelledby-" elementId}}`
 - [] Can we use the same patterns for attributes for HTML and Components?
-- [] Why does tag id have nested double string patterns?
+- [x] Why does tag id have nested double string patterns?
+- [x] Single Regex for open and close html elements
 
 ### Cleanup:
 Top Level
