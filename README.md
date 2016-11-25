@@ -10,3 +10,4 @@ Thank you [language-babel](https://github.com/gandm/language-babel) and [languag
 - Comment Block Bindings
 - Unescaped output (triple curlies) is flagged with wrapping `.unescaped.block.htmlbars`
 - Property/Component/Helper names flagged as `string.of.property.function.component.name.htmlbars`
+- All ember helpers flagged as `support.function.builtin.inline.htmlbars`

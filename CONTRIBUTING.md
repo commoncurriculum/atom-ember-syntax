@@ -14,6 +14,26 @@ Contributions are welcome!
 - [x] Switch namespace for everything to `meta.tag.htmlbars`
 - [] Change HTMLBars to `source.htmlbars.js`
 - [] Fix undefined grammer
+- [] Match variable names instead of unquoted string inside `{{concat "aria-labelledby-" elementId}}`
+- [] Can we use the same patterns for attributes for HTML and Components?
+- [] Why does tag id have nested double string patterns?
+
+### Cleanup:
+Top Level
+- [x] #htmlbars-unescaped
+- [x] #htmlbars-comment
+- [] #htmlbars-block-open
+- [] #htmlbars-block-close
+- [] #htmlbars-inline
+
+Utility
+- [] #htmlbars-block-params
+- [] #htmlbars-as-keyword
+- [] #htmlbars-subexp
+- [] #htmlbars-generic-attribute-name
+- [] #htmlbars-generic-attribute-value
+- [x] #string-single-quoted -> Restarts with top level patterns
+- [x] #string-double-quoted -> Restarts with top level patterns
 
 Notes on Package:
 
@@ -40,6 +60,24 @@ Utility patterns:
 - #htmlbars-property-name -> Use for matching on any property name (instead of plain string.unescaped)
 
 
+
+HTML Notes:
+
+Currenly the html patterns reference the handlebars patterns in
+- meta.tag.any.html.htmlbars (top level pattern)
+- meta.tag.block.any.html.htmlbars (top level pattern)
+- meta.tag.inline.any.html.htmlbars (top level pattern)
+- meta.tag.other.html.htmlbars (top level pattern)
+- #tag-stuff
+- #string-double-quoted
+- #string-single-quoted
+- #tag-id-attribute
+
+
+There are three main attribute patterns:
+- #tag-id-attribute -> Match on `id=` only (Includes quoted patterns)
+- #tag-generic-attribute -> Match on any other attribute that is quoted (Includes quoted patterns)
+- #unquoted-attribute -> Match on any other unquoted attribute VALUE
 
 ### Naming Conventions:
 

@@ -84,7 +84,7 @@
     },
     "htmlbars-inline": {
       "name": "meta.tag.inline.htmlbars",
-      "begin": "(\\{\\{)(?:(if|unless|yield|else if|else)|([a-zA-Z0-9.-]+))",
+      "begin": "(\\{\\{)(?:(if|unless|yield|else if|else|action|component|concat|debugger|each|each in| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)|([a-zA-Z0-9.-]+))",
       "end": "(\\}\\})",
       "captures": {
         "1": {
@@ -147,17 +147,17 @@
       "match": "\\s\\b(as)\\b(?=\\s\\|)"
     },
     "string-double-quoted": {
-      "name": "string.quoted.double.html.htmlbars",
+      "name": "string.quoted.double.htmlbars",
       "begin": "\"",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.html.htmlbars"
+          "name": "punctuation.definition.string.begin.htmlbars"
         }
       },
       "end": "\"",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.html.htmlbars"
+          "name": "punctuation.definition.string.end.htmlbars"
         }
       },
       "patterns": [
@@ -171,16 +171,16 @@
       "begin": "'",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.html.htmlbars"
+          "name": "punctuation.definition.string.begin.htmlbars"
         }
       },
       "end": "'",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.html.htmlbars"
+          "name": "punctuation.definition.string.end.htmlbars"
         }
       },
-      "name": "string.quoted.single.html.htmlbars",
+      "name": "string.quoted.single.htmlbars",
       "patterns": [
         { "include": "#htmlbars-comment" },
         { "include": "#htmlbars-block-open" },
@@ -212,7 +212,7 @@
       "match": "(?<=[^=])\\b([a-zA-Z0-9:_.-]+)(=)",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.html.htmlbars"
+          "name": "entity.other.attribute-name.htmlbars"
         },
         "2": {
           "name": "punctuation.definition.tag.htmlbars"
