@@ -36,7 +36,7 @@ _Note: If you are using the `language-babel` package you may have to disable it 
 - Property/Component/Helper names flagged as `string.of.property.function.component.name.htmlbars`
 - All framework Ember helpers flagged as `support.function.builtin.inline.htmlbars`
 
-![Screenshot](https://raw.githubusercontent.com/dhedgecock/language-ember/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/DHedgecock/language-ember/master/screenshot.png)
 
 See `CONTRIBUTING.md` for technical details.
 
