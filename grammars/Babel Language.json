@@ -1,5 +1,5 @@
 {
-  "name": "Babel ES6 JavaScript + Ember Templating",
+  "name": "ES6 JavaScript (Babel) + JSX && Ember HTMLBars",
   "scopeName": "source.js",
   "foldingStartMarker": "(/\\*|{|\\()",
   "foldingEndMarker": "(\\*/|\\}|\\))",
