@@ -1,13 +1,13 @@
 {
-  "name": "Ember HTMLBars (Babel)",
-  "scopeName": "source.htmlbars.js",
-  "fileTypes": [],
+  "name": "Ember HTMLBars",
+  "scopeName": "source.htmlbars",
+  "fileTypes": [
+    "hbs"
+  ],
   "patterns": [
     { "include": "#htmlbars-unescaped" },
     { "include": "#htmlbars-comment" },
-    { "include": "#htmlbars-block-open" },
-    { "include": "#htmlbars-block-close" },
-    { "include": "#htmlbars-inline" },
+    { "include": "#htmlbars-block" },
     { "include": "#html-tag" },
     { "include": "#html-comment-block" },
     { "include": "#entities" }
@@ -38,9 +38,9 @@
         }
       }
     },
-    "htmlbars-block-open": {
-      "name": "meta.tag.block.open.htmlbars",
-      "begin": "(\\{\\{)(#)(?:(if|unless|with|each|else if|else)|([a-zA-Z0-9.-]+))",
+    "htmlbars-block": {
+      "name": "meta.tag.block.htmlbars",
+      "begin": "(\\{\\{)(#)*(\/)*(?:(if|unless|with|each|else if|else|eq|not-eq|and|or|xor|gt|gte|lt|lte|is-array|is-equal|action|component|concat|debugger|each|each in| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)|([a-zA-Z0-9/.-]+))",
       "end": "(\\}\\})",
       "captures": {
         "1": {
@@ -50,54 +50,13 @@
           "name": "punctuation.definition.tag.htmlbars"
         },
         "3": {
-          "name": "support.function.builtin"
+          "name": "punctuation.definition.tag.htmlbars"
         },
         "4": {
-          "name": "entity.name.function.block.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-block-params" },
-        { "include": "#htmlbars-as-keyword" },
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-generic-attribute-name" },
-        { "include": "#htmlbars-generic-attribute-value" },
-        { "include": "#string-single-quoted" },
-        { "include": "#string-double-quoted" }
-      ]
-    },
-    "htmlbars-block-close": {
-      "name": "meta.tag.block.close.htmlbars",
-      "begin": "(\\{\\{)(/)(?:(if|unless|with|each|else if|else)|([a-zA-Z0-9.-]+))",
-      "end": "(\\}\\})",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "3": {
           "name": "support.function.builtin"
         },
-        "4": {
+        "5": {
           "name": "entity.name.function.block.htmlbars"
-        }
-      }
-    },
-    "htmlbars-inline": {
-      "name": "meta.tag.inline.htmlbars",
-      "begin": "(\\{\\{)(?:(if|unless|yield|else if|else|action|component|concat|debugger|each|each in| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)|([a-zA-Z0-9.-]+))",
-      "end": "(\\}\\})",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.inline.htmlbars"
-        },
-        "2": {
-          "name": "support.function.builtin.inline.htmlbars"
-        },
-        "3": {
-          "name": "entity.name.function.inline.htmlbars"
         }
       },
       "patterns": [
@@ -165,9 +124,7 @@
       },
       "patterns": [
         { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block-open" },
-        { "include": "#htmlbars-block-close" },
-        { "include": "#htmlbars-inline" }
+        { "include": "#htmlbars-block" }
       ]
     },
     "string-single-quoted": {
@@ -186,9 +143,7 @@
       "name": "string.quoted.single.htmlbars",
       "patterns": [
         { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block-open" },
-        { "include": "#htmlbars-block-close" },
-        { "include": "#htmlbars-inline" }
+        { "include": "#htmlbars-block" }
       ]
     },
     "htmlbars-subexp": {
@@ -272,9 +227,7 @@
       "patterns": [
         { "include": "#htmlbars-unescaped" },
         { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block-open" },
-        { "include": "#htmlbars-block-close" },
-        { "include": "#htmlbars-inline" },
+        { "include": "#htmlbars-block" },
         { "include": "#tag-id-attribute" },
         { "include": "#tag-generic-attribute" },
         { "include": "#string-double-quoted" },

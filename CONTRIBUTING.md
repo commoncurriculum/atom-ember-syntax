@@ -18,15 +18,12 @@ After an Ember template has been matched, the following top level patterns are u
 
 - #htmlbars-unescaped _(flags triple curlies)_
 - #htmlbars-comment
-- #htmlbars-block-open
-- #htmlbars-block-close
-- #htmlbars-inline
+- #htmlbars-block
 - #html-tag
 - #html-comment-block
 - #entities _(html entities eg: &amp;)_
 
 ##### Curlies Patterns
-@TODO: Attempt to combine curly regexes for simplicity.
 
 Utility patterns:
 - #htmlbars-property-name -> Use for matching on any property name (instead of plain string.unescaped)
