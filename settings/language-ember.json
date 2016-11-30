@@ -51,7 +51,7 @@
       "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
     }
   },
-  ".meta.tag.htmlbars": {
+  ".source.htmlbars": {
     "editor": {
       "commentStart": "{{!-- ",
       "commentEnd": " --}}",
