@@ -58,5 +58,21 @@
       "increaseIndentPattern": "(?x)<(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)|<!--(?!.*-->)|<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)|\\{[^}\"']*$",
       "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
     }
+  },
+  ".meta.tag.htmlbars": {
+    "editor": {
+      "commentStart": "{{!-- ",
+      "commentEnd": " --}}",
+      "increaseIndentPattern": "(?x)<(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)|<!--(?!.*-->)|<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)|\\{[^}\"']*$",
+      "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
+    }
+  },
+  ".meta.ttl-grammar.js": {
+    "editor": {
+      "commentStart": "{{!-- ",
+      "commentEnd": " --}}",
+      "increaseIndentPattern": "(?x)<(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)|<!--(?!.*-->)|<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)|\\{[^}\"']*$",
+      "decreaseIndentPattern": "(?x)^\\s*(</(?!html)[-_\\.A-Za-z0-9]+\\b[^>]*>|-->|<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))|\\})"
+    }
   }
 }
