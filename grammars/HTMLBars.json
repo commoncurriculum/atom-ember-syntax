@@ -60,126 +60,14 @@
         }
       },
       "patterns": [
-        { "include": "#htmlbars-block-params" },
-        { "include": "#htmlbars-as-keyword" },
+        { "include": "#as-keyword" },
+        { "include": "#as-params" },
         { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-generic-attribute-name" },
-        { "include": "#htmlbars-generic-attribute-value" },
+        { "include": "#htmlbars-property" },
+        { "include": "#htmlbars-property-value" },
         { "include": "#string-single-quoted" },
         { "include": "#string-double-quoted" }
       ]
-    },
-    "htmlbars-property-name": {
-      "comment": "use for flagging any property, function or component name",
-      "name": "string.property.htmlbars",
-      "match": "(\\.*)(\\w+)",
-      "captures": {
-        "1": {
-          "name": "string.property.variable.punctuation.htmlbars"
-        },
-        "2": {
-          "name": "string.of.property.function.component.name.htmlbars"
-        }
-      }
-    },
-    "htmlbars-block-params": {
-      "name": "keyword.block-params.htmlbars",
-      "begin": "(?<!\\|)(\\|)",
-      "beginCaptures": {
-        "1": {
-          "name": "constant.other.symbol.begin.htmlbars"
-        }
-      },
-      "end": "(\\|)(?!\\|)",
-      "endCaptures": {
-        "1": {
-          "name": "constant.other.symbol.end.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-block-param" }
-      ]
-    },
-    "htmlbars-block-param": {
-      "name": "variable.other.htmlbars",
-      "match": "\\b([a-zA-Z0-9-_]+)\\b"
-    },
-    "htmlbars-as-keyword": {
-      "name": "support.function.builtin.htmlbars",
-      "match": "\\s\\b(as)\\b(?=\\s\\|)"
-    },
-    "string-double-quoted": {
-      "name": "string.quoted.double.htmlbars",
-      "begin": "\"",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.htmlbars"
-        }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block" }
-      ]
-    },
-    "string-single-quoted": {
-      "begin": "'",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.htmlbars"
-        }
-      },
-      "end": "'",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.htmlbars"
-        }
-      },
-      "name": "string.quoted.single.htmlbars",
-      "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block" }
-      ]
-    },
-    "htmlbars-subexp": {
-      "name": "meta.tag.inline.subexp.htmlbars",
-      "begin": "(\\()([a-zA-Z0-9.-]+)",
-      "end": "(\\))",
-      "captures": {
-        "1": {
-          "name": "punctuation.definition.tag.htmlbars"
-        },
-        "2": {
-          "name": "support.function.block.htmlbars"
-        }
-      },
-      "patterns": [
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-generic-attribute-name" },
-        { "include": "#htmlbars-generic-attribute-value" },
-        { "include": "#string-single-quoted" },
-        { "include": "#string-double-quoted" }
-      ]
-    },
-    "htmlbars-generic-attribute-name": {
-      "match": "(?<=[^=])\\b([a-zA-Z0-9:_.-]+)(=)",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.definition.tag.htmlbars"
-        }
-      }
-    },
-    "htmlbars-generic-attribute-value": {
-      "match": "\\b([a-zA-Z0-9:_.-]+)\\b",
-      "name": "string.unquoted.htmlbars"
     },
     "begin-html-patterns": {
       "comment": "======================================================",
@@ -228,35 +116,10 @@
         { "include": "#htmlbars-unescaped" },
         { "include": "#htmlbars-comment" },
         { "include": "#htmlbars-block" },
-        { "include": "#tag-id-attribute" },
-        { "include": "#tag-generic-attribute" },
+        { "include": "#html-attribute" },
         { "include": "#string-double-quoted" },
         { "include": "#string-single-quoted" },
-        { "include": "#unquoted-attribute" }
-      ]
-    },
-    "tag-generic-attribute": {
-      "comment": "eg: data-test='radical'",
-      "match": "(?<=[^=])\\b([a-zA-Z0-9:-]+)",
-      "name": "entity.other.attribute-name.html.htmlbars"
-    },
-    "tag-id-attribute": {
-      "comment": "eg: id=radical",
-      "begin": "\\b(id)\\b\\s*(=)",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.id.html.htmlbars"
-        },
-        "2": {
-          "name": "punctuation.separator.key-value.html.htmlbars"
-        }
-      },
-      "end": "(?<='|\")|(?=\\s|>)",
-      "name": "meta.attribute-with-value.id.html.htmlbars",
-      "patterns": [
-        { "include": "#string-double-quoted" },
-        { "include": "#string-single-quoted" },
-        { "include": "#unquoted-attribute" }
+        { "include": "#unquoted-attribute-value" }
       ]
     },
     "entities": {
@@ -280,8 +143,146 @@
         }
       ]
     },
-    "unquoted-attribute": {
-      "comment": "Eg: checked=true",
+    "begin-util-patterns": {
+      "comment": "======================================================",
+      "comment": "Begin Util Patterns",
+      "comment": "======================================================"
+    },
+    "as-keyword": {
+      "comment": "matches the 'as' when creating params: as |someParam|",
+      "name": "support.function.builtin.htmlbars",
+      "match": "\\s\\b(as)\\b(?=\\s\\|)"
+    },
+    "as-params": {
+      "comment": "Matches the params inside pipes: as |someParam|",
+      "name": "keyword.block-params.htmlbars",
+      "begin": "(?<!\\|)(\\|)",
+      "beginCaptures": {
+        "1": {
+          "name": "constant.other.symbol.begin.htmlbars"
+        }
+      },
+      "end": "(\\|)(?!\\|)",
+      "endCaptures": {
+        "1": {
+          "name": "constant.other.symbol.end.htmlbars"
+        }
+      },
+      "patterns": [
+        { "include": "#variable" }
+      ]
+    },
+    "htmlbars-subexp": {
+      "comment": "matches any subexpressions (expression within parens) within htmlbars: {{something someValue=(helper someProp)}}",
+      "name": "meta.tag.inline.subexp.htmlbars",
+      "begin": "(\\()([a-zA-Z0-9.-]+)",
+      "end": "(\\))",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.tag.htmlbars"
+        },
+        "2": {
+          "name": "support.function.block.htmlbars"
+        }
+      },
+      "patterns": [
+        { "include": "#htmlbars-subexp" },
+        { "include": "#htmlbars-property" },
+        { "include": "#htmlbars-property-value" },
+        { "include": "#string-single-quoted" },
+        { "include": "#string-double-quoted" }
+      ]
+    },
+    "htmlbars-property-name": {
+      "comment": "use for flagging any property, function or component name",
+      "comment": "eg: {{someProp}} where pattern matches someProp",
+      "comment": "currently only in use by unescaped pattern",
+      "name": "string.property.htmlbars",
+      "match": "(\\.*)(\\w+)",
+      "captures": {
+        "1": {
+          "name": "string.property.variable.punctuation.htmlbars"
+        },
+        "2": {
+          "name": "string.of.property.function.component.name.htmlbars"
+        }
+      }
+    },
+    "variable": {
+      "name": "variable.other.htmlbars",
+      "match": "\\b([a-zA-Z0-9-_]+)\\b"
+    },
+    "string-double-quoted": {
+      "name": "string.quoted.double.htmlbars",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.htmlbars"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.htmlbars"
+        }
+      },
+      "patterns": [
+        { "include": "#htmlbars-comment" },
+        { "include": "#htmlbars-block" }
+      ]
+    },
+    "string-single-quoted": {
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.htmlbars"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.htmlbars"
+        }
+      },
+      "name": "string.quoted.single.htmlbars",
+      "patterns": [
+        { "include": "#htmlbars-comment" },
+        { "include": "#htmlbars-block" }
+      ]
+    },
+    "htmlbars-property": {
+      "match": "(?<=[^=])\\b([a-zA-Z0-9:_.-]+)(=)",
+      "captures": {
+        "1": {
+          "name": "entity.other.property.attribute-name.htmlbars"
+        },
+        "2": {
+          "name": "punctuation.definition.tag.htmlbars"
+        }
+      }
+    },
+    "htmlbars-property-value": {
+      "match": "\\b([a-zA-Z0-9:_.-]+)\\b",
+      "name": "string.unquoted.property.htmlbars"
+    },
+    "html-attribute": {
+      "comment": "match html attributes and flags id as special attribute",
+      "comment": "eg: class=",
+      "match": "(?<=[^=])\\b(id)|([a-zA-Z0-9:_.-]+)(=)",
+      "captures": {
+        "1": {
+          "name": "entity.other.attribute-name.id.html.htmlbars"
+        },
+        "2": {
+          "name": "entity.other.attribute-name.htmlbars"
+        },
+        "3": {
+          "name": "punctuation.separator.key-value.html.htmlbars"
+        }
+      }
+    },
+    "unquoted-attribute-value": {
+      "comment": "Eg: checked=true will match 'true'",
       "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
       "name": "string.unquoted.html.htmlbars"
     }
