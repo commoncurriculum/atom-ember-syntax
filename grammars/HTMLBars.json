@@ -40,7 +40,7 @@
     },
     "htmlbars-block": {
       "name": "meta.tag.block.htmlbars",
-      "begin": "(\\{\\{)(#)*(\/)*(?:(if|unless|with|each|else if|else|eq|not-eq|and|or|xor|gt|gte|lt|lte|is-array|is-equal|action|component|concat|debugger|each|each in| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)\\b|([a-zA-Z0-9_/.-]+))",
+      "begin": "(\\{\\{)(#)*(\/)*(?:(if|unless|with|each-in|each|else if|else|eq|not-eq|and|or|xor|gt|gte|lt|lte|is-array|is-equal|action|component|concat|debugger| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)\\b|([a-zA-Z0-9_/.-]+))",
       "end": "(\\}\\})",
       "captures": {
         "1": {
