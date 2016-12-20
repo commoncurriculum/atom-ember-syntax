@@ -1,6 +1,6 @@
 {
   "name": "language-ember",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Atom Grammer Package for Ember Applications",
   "engines": {
     "atom": "*"
