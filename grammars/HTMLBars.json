@@ -16,22 +16,24 @@
     "htmlbars-unescaped": {
       "comment": "Special capture to enable flagging unescaped properties using",
       "comment": "triple curlies",
-      "name": "unescaped.block.htmlbars",
-      "begin": "\\{\\{\\{",
-      "end": "\\}\\}\\}",
+      "name": "punctuation.definition.unescaped.block.glimmer.htmlbars",
+      "begin": "{{{",
+      "end": "}}}",
       "captures": {
         "0": {
           "name": "punctuation.definition.tag.unescaped.htmlbars"
         }
       },
       "patterns": [
+        { "include": "#htmlbars-subexp" },
         { "include": "#htmlbars-property-name" }
       ]
     },
     "htmlbars-comment": {
       "name": "comment.block.htmlbars",
-      "begin": "\\{\\{!((?:--)*)",
-      "end": "(\\1)\\}\\}",
+      "begin": "{{!(--)*",
+      "note": "capture group of -- used to handle matching end tag",
+      "end": "(\\1)}}",
       "captures": {
         "0": {
           "name": "punctuation.definition.comment.htmlbars"
