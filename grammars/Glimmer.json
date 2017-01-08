@@ -5,68 +5,67 @@
     "hbs"
   ],
   "patterns": [
-    { "include": "#htmlbars-unescaped" },
-    { "include": "#htmlbars-comment" },
-    { "include": "#htmlbars-block" },
+    { "include": "#glimmer-unescaped-expression" },
+    { "include": "#glimmer-comment" },
+    { "include": "#glimmer-expression" },
     { "include": "#html-tag" },
-    { "include": "#html-comment-block" },
+    { "include": "#html-comment" },
     { "include": "#entities" }
   ],
   "repository": {
-    "htmlbars-unescaped": {
-      "comment": "Special capture to enable flagging unescaped properties using",
-      "comment": "triple curlies",
-      "name": "punctuation.definition.unescaped.block.glimmer.htmlbars",
+    "glimmer-unescaped-expression": {
+      "comment": "Capture unescaped expressions of triple curlies",
+      "name": "entity.unescaped.expression.glimmer",
       "begin": "{{{",
       "end": "}}}",
       "captures": {
         "0": {
-          "name": "punctuation.definition.tag.unescaped.htmlbars"
+          "name": "punctuation.definition.block.unescaped.glimmer"
         }
       },
       "patterns": [
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-property-name" }
+        { "include": "#glimmer-subexp" },
+        { "include": "#glimmer-property-name" }
       ]
     },
-    "htmlbars-comment": {
-      "name": "comment.block.htmlbars",
+    "glimmer-comment": {
+      "name": "comment.block.glimmer",
       "begin": "{{!(--)*",
       "note": "capture group of -- used to handle matching end tag",
       "end": "(\\1)}}",
       "captures": {
         "0": {
-          "name": "punctuation.definition.comment.htmlbars"
+          "name": "punctuation.definition.block.comment.glimmer"
         }
       }
     },
-    "htmlbars-block": {
-      "name": "meta.tag.block.htmlbars",
-      "begin": "(\\{\\{)(#)*(\/)*(?:(if|unless|with|each-in|each|else if|else|eq|not-eq|and|or|xor|gt|gte|lt|lte|is-array|is-equal|action|component|concat|debugger| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)\\b|([a-zA-Z0-9_/.-]+))",
-      "end": "(\\}\\})",
+    "glimmer-expression": {
+      "name": "entity.expression.glimmer",
+      "begin": "({{)(#)*(\/)*(?:(if|unless|with|each-in|each|else if|else|eq|not-eq|and|or|xor|gt|gte|lt|lte|is-array|is-equal|action|component|concat|debugger| get|hash|loc|log|mount|mut|outlet|partial|query-params|render|unbound)(?!-)\\b|([a-zA-Z0-9_/.-]+))",
+      "end": "(}})",
       "captures": {
         "1": {
-          "name": "punctuation.definition.tag.htmlbars"
+          "name": "punctuation.definition.block.glimmer"
         },
         "2": {
-          "name": "punctuation.definition.tag.htmlbars"
+          "name": "punctuation.definition.block.glimmer"
         },
         "3": {
-          "name": "punctuation.definition.tag.htmlbars"
+          "name": "punctuation.definition.block.glimmer"
         },
         "4": {
           "name": "support.function.builtin"
         },
         "5": {
-          "name": "entity.name.function.block.htmlbars"
+          "name": "entity.name.function.block.glimmer"
         }
       },
       "patterns": [
         { "include": "#as-keyword" },
         { "include": "#as-params" },
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-property" },
-        { "include": "#htmlbars-property-value" },
+        { "include": "#glimmer-subexp" },
+        { "include": "#glimmer-property" },
+        { "include": "#glimmer-property-value" },
         { "include": "#string-single-quoted" },
         { "include": "#string-double-quoted" }
       ]
@@ -76,20 +75,20 @@
       "comment": "Begin HTML Patterns",
       "comment": "======================================================"
     },
-    "html-comment-block": {
+    "html-comment": {
       "comment": "match on any html comment block eg: <!-- -->",
       "begin": "<!--",
       "captures": {
         "0": {
-          "name": "punctuation.definition.comment.html.htmlbars"
+          "name": "punctuation.definition.comment.html.glimmer"
         }
       },
       "end": "--\\s*>",
-      "name": "comment.block.html.htmlbars",
+      "name": "comment.block.html.glimmer",
       "patterns": [
         {
           "match": "--",
-          "name": "invalid.illegal.bad-comments-or-CDATA.html.htmlbars"
+          "name": "invalid.illegal.bad-comments-or-CDATA.html.glimmer"
         }
       ]
     },
@@ -98,26 +97,26 @@
       "begin": "(<\\/?)(([a-zA-Z0-9:-]+))\\b",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.definition.tag.html.htmlbars"
+          "name": "punctuation.definition.tag.html.glimmer"
         },
         "2": {
-          "name": "entity.name.tag.html.htmlbars"
+          "name": "entity.name.tag.html.glimmer"
         }
       },
       "end": "(\\/?)(>)",
       "endCaptures": {
         "1": {
-          "name": "punctuation.definition.tag.html.htmlbars"
+          "name": "punctuation.definition.tag.html.glimmer"
         },
         "2": {
-          "name": "punctuation.definition.tag.html.htmlbars"
+          "name": "punctuation.definition.tag.html.glimmer"
         }
       },
-      "name": "meta.tag.html.element.htmlbars",
+      "name": "meta.tag.html.element.glimmer",
       "patterns": [
-        { "include": "#htmlbars-unescaped" },
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block" },
+        { "include": "#glimmer-unescaped-expression" },
+        { "include": "#glimmer-comment" },
+        { "include": "#glimmer-expression" },
         { "include": "#html-attribute" },
         { "include": "#string-double-quoted" },
         { "include": "#string-single-quoted" },
@@ -130,18 +129,18 @@
         {
           "captures": {
             "1": {
-              "name": "punctuation.definition.entity.html.htmlbars"
+              "name": "punctuation.definition.entity.html.glimmer"
             },
             "3": {
-              "name": "punctuation.definition.entity.html.htmlbars"
+              "name": "punctuation.definition.entity.html.glimmer"
             }
           },
           "match": "(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)",
-          "name": "constant.character.entity.html.htmlbars"
+          "name": "constant.character.entity.html.glimmer"
         },
         {
           "match": "&",
-          "name": "invalid.illegal.bad-ampersand.html.htmlbars"
+          "name": "invalid.illegal.bad-ampersand.html.glimmer"
         }
       ]
     },
@@ -152,120 +151,127 @@
     },
     "as-keyword": {
       "comment": "matches the 'as' when creating params: as |someParam|",
-      "name": "support.function.builtin.htmlbars",
+      "name": "support.function.builtin.glimmer",
       "match": "\\s\\b(as)\\b(?=\\s\\|)"
     },
     "as-params": {
       "comment": "Matches the params inside pipes: as |someParam|",
-      "name": "keyword.block-params.htmlbars",
+      "name": "keyword.block-params.glimmer",
       "begin": "(?<!\\|)(\\|)",
       "beginCaptures": {
         "1": {
-          "name": "constant.other.symbol.begin.htmlbars"
+          "name": "constant.other.symbol.begin.glimmer"
         }
       },
       "end": "(\\|)(?!\\|)",
       "endCaptures": {
         "1": {
-          "name": "constant.other.symbol.end.htmlbars"
+          "name": "constant.other.symbol.end.glimmer"
         }
       },
       "patterns": [
         { "include": "#variable" }
       ]
     },
-    "htmlbars-subexp": {
-      "comment": "matches any subexpressions (expression within parens) within htmlbars: {{something someValue=(helper someProp)}}",
-      "name": "meta.tag.inline.subexp.htmlbars",
+    "glimmer-subexp": {
+      "comment": "matches any subexpressions within glimmer expressions: {{something someValue=(helper someProp)}}",
+      "name": "entity.subexp.glimmer",
       "begin": "(\\()([a-zA-Z0-9.-]+)",
       "end": "(\\))",
       "captures": {
         "1": {
-          "name": "punctuation.definition.tag.htmlbars"
+          "name": "punctuation.definition.subexpression.glimmer"
         },
         "2": {
-          "name": "support.function.block.htmlbars"
+          "name": "support.function.block.glimmer"
         }
       },
       "patterns": [
-        { "include": "#htmlbars-subexp" },
-        { "include": "#htmlbars-property" },
-        { "include": "#htmlbars-property-value" },
+        { "include": "#glimmer-subexp" },
+        { "include": "#glimmer-property" },
+        { "include": "#glimmer-property-value" },
         { "include": "#string-single-quoted" },
         { "include": "#string-double-quoted" }
       ]
     },
-    "htmlbars-property-name": {
+    "glimmer-property-name": {
       "comment": "use for flagging any property, function or component name",
       "comment": "eg: {{someProp}} where pattern matches someProp",
       "comment": "currently only in use by unescaped pattern",
-      "name": "string.property.htmlbars",
+      "name": "string.property.glimmer",
       "match": "(\\.*)(\\w+)",
       "captures": {
         "1": {
-          "name": "string.property.variable.punctuation.htmlbars"
+          "name": "string.property.variable.punctuation.glimmer"
         },
         "2": {
-          "name": "string.of.property.function.component.name.htmlbars"
+          "name": "string.of.property.function.component.name.glimmer"
         }
       }
     },
     "variable": {
-      "name": "variable.other.htmlbars",
+      "name": "variable.other.glimmer",
       "match": "\\b([a-zA-Z0-9-_]+)\\b"
     },
     "string-double-quoted": {
-      "name": "string.quoted.double.htmlbars",
+      "name": "string.quoted.double.glimmer",
       "begin": "\"",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.htmlbars"
+          "name": "punctuation.definition.string.begin.glimmer"
         }
       },
       "end": "\"",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.htmlbars"
+          "name": "punctuation.definition.string.end.glimmer"
         }
       },
       "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block" }
+        { "include": "#glimmer-comment" },
+        { "include": "#glimmer-expression" }
       ]
     },
     "string-single-quoted": {
       "begin": "'",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.htmlbars"
+          "name": "punctuation.definition.string.begin.glimmer"
         }
       },
       "end": "'",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.htmlbars"
+          "name": "punctuation.definition.string.end.glimmer"
         }
       },
-      "name": "string.quoted.single.htmlbars",
+      "name": "string.quoted.single.glimmer",
       "patterns": [
-        { "include": "#htmlbars-comment" },
-        { "include": "#htmlbars-block" }
+        { "include": "#glimmer-comment" },
+        { "include": "#glimmer-expression" }
       ]
     },
-    "htmlbars-property": {
+    "glimmer-property": {
       "match": "(?<=[^=])\\b([a-zA-Z0-9:_.-]+)(=)",
       "captures": {
         "1": {
-          "name": "entity.other.property.attribute-name.htmlbars"
+          "name": "entity.other.property.attribute-name.glimmer"
         },
         "2": {
-          "name": "punctuation.definition.tag.htmlbars"
+          "name": "punctuation.definition.tag.glimmer"
         }
       }
     },
-    "htmlbars-property-value": {
-      "match": "\\b([a-zA-Z0-9:_.-]+)\\b",
-      "name": "string.unquoted.property.htmlbars"
+    "glimmer-property-value": {
+      "match": "\\b(true|false)|([a-zA-Z0-9:_.-]+)\\b",
+      "captures": {
+        "1": {
+          "name": "constant.language.boolean.glimmer"
+        },
+        "2": {
+          "name": "string.unquoted.property.glimmer"
+        }
+      }
     },
     "html-attribute": {
       "comment": "match html attributes and flags id as special attribute",
@@ -273,20 +279,20 @@
       "match": "(?<=[^=])\\b(id)|([a-zA-Z0-9:_.-]+)(=)",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.id.html.htmlbars"
+          "name": "entity.other.attribute-name.id.html.glimmer"
         },
         "2": {
-          "name": "entity.other.attribute-name.htmlbars"
+          "name": "entity.other.attribute-name.glimmer"
         },
         "3": {
-          "name": "punctuation.separator.key-value.html.htmlbars"
+          "name": "punctuation.separator.key-value.html.glimmer"
         }
       }
     },
     "unquoted-attribute-value": {
       "comment": "Eg: checked=true will match 'true'",
       "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
-      "name": "string.unquoted.html.htmlbars"
+      "name": "string.unquoted.html.glimmer"
     }
   }
 }
