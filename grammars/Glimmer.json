@@ -1,6 +1,6 @@
 {
-  "name": "Ember HTMLBars",
-  "scopeName": "source.htmlbars",
+  "name": "Ember Glimmer",
+  "scopeName": "source.glimmer",
   "fileTypes": [
     "hbs"
   ],

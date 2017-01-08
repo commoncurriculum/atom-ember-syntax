@@ -1,5 +1,5 @@
 {
-  "name": "ES6 JavaScript (Babel) + JSX && Ember HTMLBars",
+  "name": "ES6 JavaScript + JSX && Glimmer",
   "scopeName": "source.js",
   "foldingStartMarker": "(/\\*|{|\\()",
   "foldingEndMarker": "(\\*/|\\}|\\))",
@@ -2097,20 +2097,20 @@
       "patterns": [
         {
           "comment": "Ember inline htmlbar templates",
-          "name": "meta.tag.htmlbars",
-          "begin": "\\s*+(hbs)((`))",
+          "name": "meta.source.glimmer.js",
+          "begin": "\\s*(hbs)((`))",
           "end": "((`))",
           "beginCaptures": {
             "1": { "name": "entity.name.tag.js" },
-            "2": { "name": "punctuation.definition.template.begin.js" },
-            "3": { "name": "template.string.tagged.js" }
+            "2": { "name": "markup.template.definition.begin.glimmer.js" },
+            "3": { "name": "string.template.tagged.js" }
           },
           "endCaptures": {
-            "1": { "name": "punctuation.definition.template.end.js" },
-            "2": { "name": "template.string.tagged.js" }
+            "1": { "name": "markup.template.definition.end.glimmer.js" },
+            "2": { "name": "string.template.tagged.js" }
           },
           "patterns": [
-            { "include": "source.htmlbars" }
+            { "include": "source.glimmer" }
           ]
         }
       ]
