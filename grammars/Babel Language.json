@@ -435,6 +435,7 @@
       "patterns": [
         { "include": "#flowtype-comments" },
         { "include": "#special-comments-conditional-compilation" },
+        { "include": "internal.docblock" },
         {
           "contentName": "comment.block.documentation.js",
           "begin": "\\s*+((/\\*\\*))(?!/)",
