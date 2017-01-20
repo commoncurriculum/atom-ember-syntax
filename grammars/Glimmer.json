@@ -1,4 +1,5 @@
 {
+  "comment": "Ember syntax patterns",
   "name": "Ember Glimmer",
   "scopeName": "source.glimmer",
   "fileTypes": [

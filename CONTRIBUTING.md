@@ -1,17 +1,21 @@
 # Contributing
 
-Contributions are welcome! The below notes are intended to give a quick overview of how this package works.
-The main grammar file, `Babel Language` is a copy of the atom `language-babel` primary grammar file. The only change that has been made to this file is the pattern that matches Ember tagged templates using this syntax:
+Contributions are welcome! The below notes are intended to give a quick overview of how this package works. The main grammar file, `Glimmer.json` contains all of the glimmer syntax patterns.
 
-``layout: hbs`Some Template` ``
+The injections files handle injecting those patterns into other common scopes where glimmer
+syntax highlighting is desired.
 
-See the `#ember-htmlbars` entry in `Babel Language.json` for details.
 
 ### Naming Conventions:
 
-- `.hbs` file scopeName is `.source.htmlbars`
-- `.js` template string scope is `meta.tag.htmlbars`
-- HTMLBars matches should end in `.htmlbars`
+- `.hbs` file scopeName is `.source.glimmer`
+- `.js` template string scope is `meta.source.glimmer.js`
+- Matches should end in `.glimmer`
+
+
+---
+
+TODO: The below needs a quick revision
 
 ### Top Level Patterns
 

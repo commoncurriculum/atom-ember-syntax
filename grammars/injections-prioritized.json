@@ -1,0 +1,25 @@
+{
+  "comment": "This injection adds a pattern to match glimmer inline template declarations to js source grammars. It is prioritized using L: to make sure that the pattern is not pre-matched by some other template string matching pattern.",
+  "injectionSelector": "L:source.js",
+  "scopeName": "injected.priority.glimmer",
+  "patterns": [
+    {
+      "comment": "Ember inline htmlbar templates",
+      "name": "meta.source.glimmer.js",
+      "begin": "\\s*(hbs)((`))",
+      "end": "((`))",
+      "beginCaptures": {
+        "1": { "name": "entity.name.tag.js" },
+        "2": { "name": "markup.template.definition.begin.glimmer.js" },
+        "3": { "name": "string.template.tagged.js" }
+      },
+      "endCaptures": {
+        "1": { "name": "markup.template.definition.end.glimmer.js" },
+        "2": { "name": "string.template.tagged.js" }
+      },
+      "patterns": [
+        { "include": "source.glimmer" }
+      ]
+    }
+  ]
+}

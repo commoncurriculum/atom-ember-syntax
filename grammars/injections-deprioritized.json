@@ -1,0 +1,23 @@
+{
+  "comment": "This injection adds deprioritized matches for glimmer syntax into documentation code blocks. This is helpful for catching syntax errors while writing documentation.",
+  "injectionSelector": "comment.block.documentation",
+  "scopeName": "injected.deprioritized.glimmer",
+  "patterns": [
+    {
+      "comment": "captures markdown code blocks with glimmer contents",
+      "name": "markup.glimmer.code.block.gfm",
+      "begin": "(`{3})(handlebars|glimmer|htmlbars)",
+      "end": "(\\1)",
+      "captures": {
+        "1": { "name": "punctuation.begin.code.block.gfm" },
+        "2": { "name": "entity.name.tag.gfm" },
+        "3": { "name": "punctuation.end.code.block.gfm" }
+      },
+      "patterns": [
+        { "include": "#docblock-line" },
+        { "include": "source.glimmer" }
+      ]
+    },
+    { "include": "source.glimmer" }
+  ]
+}

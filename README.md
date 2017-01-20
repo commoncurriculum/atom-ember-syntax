@@ -3,37 +3,15 @@
 This package provides HMLBars/Glimmer syntax highlighting for template (`.hbs`)
 files as well as inline template declaration in JS files.
 
-### Template File Highlighting
+### Syntax Highlighting
 
-To activate syntax highlighting in template files select `Ember HTMLBars` as the language.
+To activate syntax highlighting in template files select `Ember Glimmer` as the
+language. Glimmer highlighting is automatically applied to any inline template
+declaration in JS files.
 
-### Inline Template Highlighting
+### Ember Inline Template Declaration
 
-##### With `language-babel`
-
-If you're using the [language-babel](https://github.com/gandm/language-babel)
-package you can continue using `language-babel` to highlight your JavaScript and
-add support for inline templates using the _JavaScript Tagged Template Literal
-Grammar Extensions_ feature in `language-babel`. This feature adds syntax
-highlighting to any tagged template strings preceded by a pattern you specify.
-Simply add:
-
-`hbs:source.htmlbars`
-
-**`language-babel` has a 10 second debounce on generating new grammar extensions,
-  be sure to wait until the confirmation notice pops up!**
-
-_(This will target any template literal with `hbs` preceding it, and apply the
-  `source.htmlbars` grammar to the contents.)_
-
-##### Without `language-babel`
-
-If you're not using the language-babel extension, then select`ES6
-JavaScript (Babel) + JSX && Ember HTMLBars` as your JS default language.
-
-### Using Inline Template Declaration
-
-Ember component test files are automatically generated set up for the tagged template string syntax, eg:
+Ember component test files are automatically generated with inline template string syntax, eg:
 
 ```javascript
 this.render(hbs`
@@ -43,7 +21,7 @@ this.render(hbs`
 `);
 ```
 
-You can also declare templates for components using a tagged template string and the `layout` property:
+But you can also declare templates for components using a tagged template string and the `layout` property!
 
 ```javascript
 import Ember from 'ember';
@@ -57,11 +35,12 @@ export default Ember.component.extend({
 });
 ```
 
-### Features
+This package will match the ``hbs` ` `` declaration and apply syntax highlighting
+to template string contents.
 
-- Maintains [language-babel](https://github.com/gandm/language-babel) ES6 && JSX syntax highlighting
+### Features
 - HTMLBars Comment Block Bindings on `Cmd + /`
-- Unescaped output (triple curlies) is flagged with wrapping `.unescaped.block.htmlbars`
+- Unescaped output (triple curlies) are flagged with wrapping `.unescaped.block.htmlbars`
 - Property/Component/Helper names flagged as `string.of.property.function.component.name.htmlbars`
 - All framework Ember helpers flagged as `support.function.builtin.inline.htmlbars`
 
@@ -70,4 +49,4 @@ export default Ember.component.extend({
 See `CONTRIBUTING.md` for technical details.
 
 ### Thank You
-Thank you [language-babel](https://github.com/gandm/language-babel) and [language-ember-htmlbars](https://github.com/jmurphyau/language-ember-htmlbars) for the regex patterns.
+[language-ember-htmlbars](https://github.com/jmurphyau/language-ember-htmlbars) for ideas on regex patterns.
