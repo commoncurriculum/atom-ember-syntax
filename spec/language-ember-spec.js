@@ -12,9 +12,6 @@ describe('LanguageDocumentation', () => {
     waitsForPromise(function() {
       return atom.packages.activatePackage('language-ember');
     });
-    waitsForPromise(function() {
-      return atom.packages.activatePackage('language-babel');
-    });
   });
 
   grammarTest(path.join(__dirname, 'fixtures/syntax-test.js'))

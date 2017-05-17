@@ -1,5 +1,5 @@
 {
-  ".source.glimmer": {
+  ".source.handlebars": {
     "note": "Glimmer rules for using package as .hbs highlighter and .js inline template highlighter",
     "note:increaseIndent": "hbs` for template start",
     "note:decreaseIndent": "` for end of template",

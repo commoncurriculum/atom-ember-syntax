@@ -6,21 +6,25 @@
     "atom": "*"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DHedgecock/language-ember.git"
+    "url": "https://github.com/healthsparq/atom-ember-syntax"
   },
   "keywords": [
     "Ember",
     "Atom",
-    "Grammar"
+    "grammar",
+    "handlebars"
   ],
-  "author": "Dan Hedgecock",
+  "author": "Dan Hedgecock <hedgecock.d@gmail.com> (danhedgecock.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DHedgecock/language-ember/issues"
+    "url": "https://github.com/healthsparq/atom-ember-syntax"
   },
-  "homepage": "https://github.com/DHedgecock/language-ember#readme"
+  "homepage": "https://github.com/healthsparq/atom-ember-syntax#readme",
+  "devDependencies": {
+    "glimmer-syntax-patterns": "^1.1.0"
+  }
 }
