@@ -5,9 +5,15 @@ files as well as inline template declaration in JS files.
 
 ### Syntax Highlighting
 
-To activate syntax highlighting in template files select `Ember Glimmer` as the
+To activate syntax highlighting in template files select `Glimmer` as the
 language. Glimmer highlighting is automatically applied to any inline template
 declaration in JS files.
+
+### ESLint
+
+When using this grammar you must update your ESLint config to include this
+grammar in its scope. Add `source.js.extended` to the _'List of scopes to
+run on...'_ in the `linter-eslint` settings.
 
 ### Ember Inline Template Declaration
 
