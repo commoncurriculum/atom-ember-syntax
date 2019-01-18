@@ -25,7 +25,7 @@
   "firstLineMatch": "(?x)\n# Hashbang\n^\\#!.*(?:\\s|\\/|(?<=!)\\b)\n  (?:node|iojs|JavaScript)\n(?:$|\\s)\n|\n# Modeline\n(?i:\n  # Emacs\n  -\\*-(?:\\s*(?=[^:;\\s]+\\s*-\\*-)|(?:.*?[;\\s]|(?<=-\\*-))mode\\s*:\\s*)\n    (?:js|javascript)\n  (?=[\\s;]|(?<![-*])-\\*-).*?-\\*-\n  |\n  # Vim\n  (?:(?:\\s|^)vi(?:m[<=>]?\\d+|m)?|\\sex)(?=:(?=\\s*set?\\s[^\\n:]+:)|:(?!\\s*set?\\s))(?:(?:\\s|\\s*:\\s*)\\w*(?:\\s*=(?:[^\\n\\\\\\s]|\\\\.)*)?)*[\\s:](?:filetype|ft|syntax)\\s*=\n    javascript\n  (?=\\s|:|$)\n)",
   "name": "JavaScript (extended)",
   "patterns": [
-    ("glimmer-tagged-template": {
+    "glimmer-tagged-template": {
       "name": "meta.source.handlebars.js",
       "begin": "\\s?(hbs)((`))",
       "end": "((`))",
@@ -53,8 +53,8 @@
           "include": "source.handlebars"
         }
       ]
-    }),
-    ("handlebars-fenced-code-block": {
+    },
+    "handlebars-fenced-code-block": {
       "name": "markup.fenced_code.block.markdown.jsdoc",
       "begin": "([`~]{3,})(handlebars|glimmer)",
       "beginCaptures": {
@@ -79,7 +79,7 @@
           "include": "source.handlebars"
         }
       ]
-    }),
+    },
     {
       "begin": "(?<!\\.)\\b(import)(?!\\s*[:(])\\b",
       "beginCaptures": {
